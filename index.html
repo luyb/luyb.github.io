@@ -3,59 +3,10 @@
 <head>
 <meta  content="text/html;charset=gb2312">
 <style type="text/css""><!--
-.screen{
-margin:0;
-display:block;
-position:relative;
-background:#e8e7e6;
-width:36.8em;
-height:73.4em;
-padding:0.2em;
-border:0.1em solid #868381;
-border-radius:5.8em;
-box-shadow:0 0 0 1px #c1bfbf;
 
-}
 body{
-margin:0;Font-size:62.5%;
+margin:0;Font-size:62.5%;text-align:center;
 }
-.top{
-	background:#e8e7e6;
-	height:1.6em;
-	width:auto;
-}
-.menu{
-	background:#88A1B6;
-	height:4.0em;
-	padding:0 10.0em 0 10.0em;
-}
-.menu.link{
-line-height:4.0em;
-background:#88A1f1;
-height:4.0em;
-width:2.0em;
-//content:"";
-}
-.truePic img{
-	height:93.3em;
-	width:70em;
-}
-.truePic,.coloc{height:93.3em;width:60em;float:left;background:white;}
-.coloc{text-align:center;p}
-.biankuang{
-	height:31em;width:31em;background:white;margin:30em auto;
-	border-radius:15.5em;
-	box-shadow:inset 0 0 0.2em rgb(179, 174, 174),0 0.5em 1em rgb(179, 174, 174);
-	position: relative;
-}
-.neibiankuang{
-	position:relative;
-	top:2em;
-	height:27em;width:27em;background:white;margin:30em auto;
-	border-radius:13.5em;
-	box-shadow:inset 0 0.1em 0.8em rgb(179, 174, 174),0 0 1em rgb(212, 207, 207);
-}
-
 .neibiankuang li:nth-child(2) {-webkit-transform:rotate(1.2deg);}
 .neibiankuang li:nth-child(3) {-webkit-transform:rotate(2.4deg);}
 .neibiankuang li:nth-child(4) {-webkit-transform:rotate(3.6deg);}
@@ -243,49 +194,91 @@ width:2.0em;
 .h_line li:nth-child(4) {-webkit-transform:rotate(90deg);}
 .h_line li:nth-child(5) {-webkit-transform:rotate(120deg);}
 .h_line li:nth-child(6) {-webkit-transform:rotate(150deg);}
+.coloc{
+	height: 50em;
+	width: 40em;
+	background: white;
+	margin:0 auto;
+	position: relative;
+}
+
+.biankuang{
+	height: 31em;
+	width: 31em;
+	background: white;
+	border-radius: 15.5em;
+	box-shadow: inset 0 0 0.2em rgb(179, 174, 174),0 1em 2em rgb(153, 153, 153);
+	position: absolute;
+	top:12em;
+	left: 4.5em;
+}
+.neibiankuang{
+	position: absolute;
+	top: 2em;
+	left: 2em;
+	height: 27em;
+	width: 27em;
+	background: white;
+	border-radius: 13.5em;
+	box-shadow: inset 0 0.1em 0.8em rgb(179, 174, 174),0 0 1em rgb(212, 207, 207);
+}
+.hm_holder{
+	height: 26em;
+	width: 26em;
+	border-radius: 13em;
+	position: absolute;
+	top: 0.5em;
+	left: 0.5em;
+	background: white;
+	box-shadow: inset 0 0 0.5em rgb(186, 186, 186),0 0 0.2em rgb(190, 190, 190);
+}
 
 .neibiankuang li{width:0.01em;height:26em;border-left:0.1em solid rgb(190, 186, 186);position:absolute;display:block;left:13.5em;top:0.5em;}
 .h_line li{border-left:0.2em solid rgb(128, 123, 123);}
 .hm_cover{height:25.6em;width:25.6em;border-radius:12.8em;position:absolute;top:0.7em;left:0.7em;background:white;box-shadow:inset 0 0 0.2em rgb(214, 214, 214)}
 .m_cover{height:25em;width:25em;border-radius:12.5em;position:absolute;top:1.0em;left:1.0em;background:white;}
-.h_cover{height:24.4em;width:24.4em;border-radius:12.2em;position:absolute;top:1.3em;left:1.3em;}
-.hm_cover,.m_cover,.h_cover{background:linear-gradient(#FFFFFF, #E6E8E9);}
+.h_cover{height:24.2em;width:24.2em;border-radius:12.1em;position:absolute;top:1.4em;left:1.4em;}
+.hm_holder,.hm_cover,.m_cover,.h_cover{background:linear-gradient(#FFFFFF, #E1E1E1);}
 .number{display:inline-block;position:absolute;font-size:2.6em;color:rgb(94, 90, 90);font-family: Arial;}
 .six{top: 0.4em;left: 4.7em;}
 .fif{top: 4.6em;left: 8.7em;}
 .pointer_holder{height:2.8em;width:2.8em;border-radius:1.4em;background:linear-gradient(rgb(116, 112, 112),rgb(33, 32, 32));position:absolute;top:12.1em;left:12.2em;box-shadow: 0 0.3em 0.3em rgb(145, 142, 142)}
 .pointer_holder_in{height: 1.4em;width: 1.4em;border-radius: 0.7em;top:0.7em;left:0.7em;position: absolute;background: rgb(75, 74, 74);}
 .second_set{height: 1.2em;width: 1.2em;border-radius: 0.6em;top:0.1em;left:0.1em;position: absolute;background: #AF3737;}
-.second_pointer{position: absolute;
-left: -7em;
-top: -7.1em;
-width: 0px;
-height: 0px;
-border-bottom: 150px solid #AF3737;
-border-left: 6px solid transparent;
-border-right: 3px solid transparent;
--webkit-transform: scale(1) scaleY(1) scaleX(5) rotate(90deg);}
-.second_holder{height:26em;width:26em;position:absolute;top: 0.5em;
-left: 0.6em;
--webkit-transform: rotate(-90deg)}
-.second_container{height: 1em;
-width: 14.5em;
-position: absolute;
-/* background: white; */
-top: 12.5em;
-left: 10em;
-border-radius: 0.5em;
-overflow: hidden;}
+.second_pointer{
+	position: absolute;
+	left: -7em;
+	top: -7.1em;
+	width: 0px;
+	height: 0px;
+	border-bottom: 150px solid #AF3737;
+	border-left: 6px solid transparent;
+	border-right: 3px solid transparent;
+	-webkit-transform: scale(1) scaleY(1) scaleX(5) rotate(90deg);
+}
+.second_holder{
+	height:26em;width:26em;position:absolute;top: 0.5em;
+	left: 0.6em;
+	-webkit-transform: rotate(-90deg)
+}
+.second_container{
+	height: 1em;
+	width: 14.5em;
+	position: absolute;
+	top: 12.5em;
+	left: 10em;
+	border-radius: 0.5em;
+	overflow: hidden;
+}
 
 .btn_top,.btn_body{
 	height: 2.2em;
-	width: 5em;
-	/* background: black; */
+	width: 4.8em;
 	border-radius: 0.6em;
-	background-image: -webkit-linear-gradient(left, #DCDDDE 0%, #F7F7F7 20%,#EDEDED 45%,#D6D6D6 55%,#D6D6D6 60%, #FFFFFF 85%,#FFFFFF 100%);
-	box-shadow:inset 0 0 0.1em 0.1em rgb(220, 220, 220),inset 0 0 0.5em rgb(255, 255, 255),0 0.2em 0.6em rgb(153, 153, 153);
+	background-image: -webkit-linear-gradient(left, #DCDDDE 0%, #FFFFFF 20%,#F7F7F7 50%,#D9D9D9 57%,#D6D6D6 63%, #FFFFFF 86%,#FFFFFF 100%);
+	box-shadow:inset 0 0 0.1em 0.1em rgb(220, 220, 220),inset 0 0 0.5em rgb(255, 255, 255),0 0.3em 0.6em rgb(153, 153, 153);
 	position: absolute;
-	top: 4.1em;left: 2.6em
+	top: 4.1em;left: 2.7em
 }
 .btn_body{
 	height: 5em;
@@ -299,47 +292,50 @@ overflow: hidden;}
 	width: 10em;
 }
 .ctl_mid{
-	top: 23em;
-	left: 25em;
+	top: 3.2em;
+	left: 15em;
 }
-.ctl_left{top: 28.7em;
-left: 12.5em;
--webkit-transform:rotate(-45deg);}
-//.ctl_left .btn_top{-webkit-transform:rotate(180deg);}
-.ctl_right{top: 28.7em;
-left: 37.2em;
--webkit-transform:rotate(45deg);}
+.ctl_left{
+	top: 9em;
+	left: 2.5em;
+	-webkit-transform:rotate(-45deg);
+}
+.ctl_right{
+	top: 9em;
+	left: 27.5em;
+	-webkit-transform:rotate(45deg);
+}
+.ctl_left .btn_top,.ctl_left .btn_body{
+	background-image: -webkit-linear-gradient(right, #DCDDDE 0%, #FFFFFF 20%,#F7F7F7 45%,#D9D9D9 50%,#D6D6D6 63%, #FFFFFF 78%,#FFFFFF 100%);
+}
+.ctl_right .btn_top,.ctl_right .btn_body{
+	background-image: -webkit-linear-gradient(left, #DCDDDE 0%, #FFFFFF 20%,#F7F7F7 45%,#D9D9D9 50%,#D6D6D6 63%, #FFFFFF 86%,#FFFFFF 100%);
+}
 .mid_pandent{
 	position: absolute;
 	height: 8.6em;
 	width: 8.6em;
 	border-radius: 4.3em;
-	background: white;
-	box-shadow:inset 0 -0.5em 0.8em rgb(223, 219, 219), 0 0 1em rgb(255, 253, 253),0 0.3em 0.8em rgb(128, 128, 128);
-	top: -0.6em;
+	background: rgb(255, 255, 255);
+	box-shadow:inset 0 -0.1em 0.3em rgb(172, 172, 172), 0 0.4em 0.8em rgb(155, 155, 155);
+	top: -0.7em;
 	left: 0.8em;
 }
 .pandent{
 	position: absolute;
-	top: 0.7em;
-	left: 0.7em;
-	height: 7.2em;
-	width: 7.2em;
-	border-radius: 3.6em;
+	top: 0.8em;
+	left: 0.8em;
+	height: 7.0em;
+	width: 7.0em;
+	border-radius: 3.5em;
 	background: white;
-	box-shadow: inset 0 0.2em 1em rgb(142, 142, 142),0 0  0.4em gray;
+	box-shadow: inset 0 0.2em 1em rgb(164, 164, 164),0 -0.1em  0.3em rgb(174, 174, 174),0 0.1em  0.2em rgb(174, 174, 174);
 }
 </style>
 <title>秒表</title>
 </head>
 <body>
-<div class="header">
-	<div class="top"></div>
-	<!--
-	<div class="menu">
-		<a href="javascript:void(0)" class="menu link">妫ｏ拷妞わ拷</a>
-	</div>
---></div>
+
 
 <div class="coloc">
 	<div class="btn_ctl ctl_mid">
@@ -357,6 +353,7 @@ left: 37.2em;
 	</div>
 	<div class="biankuang">
 		<div class="neibiankuang">
+			<div class="hm_holder"></div>
 			<ul class="hm_line">
 				<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
 				<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
@@ -396,8 +393,10 @@ left: 37.2em;
 					<div class="second_pointer"></div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
+
 </body>
 </html>
