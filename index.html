@@ -7,6 +7,7 @@
 body{
 margin:0;Font-size:62.5%;text-align:center;
 }
+ul,li{list-style-type:none;margin:0;padding:0;}
 .neibiankuang li:nth-child(2) {-webkit-transform:rotate(1.2deg);}
 .neibiankuang li:nth-child(3) {-webkit-transform:rotate(2.4deg);}
 .neibiankuang li:nth-child(4) {-webkit-transform:rotate(3.6deg);}
@@ -331,6 +332,58 @@ margin:0;Font-size:62.5%;text-align:center;
 	background: white;
 	box-shadow: inset 0 0.2em 1em rgb(164, 164, 164),0 -0.1em  0.3em rgb(174, 174, 174),0 0.1em  0.2em rgb(174, 174, 174);
 }
+.timer{
+	height: 30em;
+	width: 30em;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.main_time{
+	font-size:4em;
+	color:rgb(174, 90, 90);
+	font-family: Arial;
+}
+.time_cover{
+	background:white;
+	position: absolute;
+	width: 100%;
+}
+.time_shadow{
+	width: 90em;
+	height: 90em;
+	border-radius: 45em;
+	margin: 0 auto;
+	box-shadow:0 0 3em;
+	position: absolute;
+	top: -85.5em;
+	left: -30em;
+	z-index: -1;
+}
+.records_cover{
+	position: absolute;
+	width:21em;
+	height:0.1em;
+	top:4.3em;
+	left:4.5em;
+	background: black;
+	box-shadow: 0 0.2em 0.4em black;
+}
+.records{
+	position:absolute;
+	width: 20em;
+	left:5em;
+	top:4em;
+	box-shadow: 0 0 1em gray;
+	z-index: 0;
+	background: white;
+}
+.records li{
+	height: 2em;
+	font-size:2.2em;
+	color:rgb(94, 92, 92);
+	font-family: Arial;
+}
 </style>
 <title>√Î±Ì</title>
 </head>
@@ -338,7 +391,7 @@ margin:0;Font-size:62.5%;text-align:center;
 
 
 <div class="coloc">
-	<div class="btn_ctl ctl_mid">
+	<div class="btn_ctl ctl_mid" onclick="myFunction()">
 		<div class="mid_pandent"><div class="pandent"></div></div>
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
@@ -388,7 +441,7 @@ margin:0;Font-size:62.5%;text-align:center;
 					<div class="second_set"></div>
 				</div>
 			</div>
-			<div class="second_holder">
+			<div class="second_holder" id="second_holder">
 				<div class="second_container">
 					<div class="second_pointer"></div>
 				</div>
@@ -397,6 +450,29 @@ margin:0;Font-size:62.5%;text-align:center;
 		</div>
 	</div>
 </div>
+<div class="timer">
+	<div class="time_shadow"></div>
+	<div class="records">
+		<ul>
+			<li>00:01:00</li>
+			<li>00:01:00</li>
+			<li>00:01:00</li>
+			<li>00:01:00</li>
+			<li>00:01:00</li>
+		</ul>
+	</div>
+	<div class="records_cover"></div>
+	<div class="time_cover">
+		<span class="main_time">00:00:00</span>
+	</div>
 
+</div>
+<script>
+	
+	function myFunction()
+	{
+		document.getElementById("second_holder").style.webkitTransform = "rotate(45deg)";
+	}
+</script>
 </body>
 </html>
