@@ -262,6 +262,7 @@ left: 225px;}
 .second_holder{
 	height:260px;width:260px;position:absolute;top: 05px;
 	left: 06px;
+	border-radius:130px;
 	-webkit-transform: rotate(-90deg)
 }
 .second_container{
@@ -304,8 +305,8 @@ left: 225px;}
 	-webkit-transform:rotate(-45deg);
 }
 .ctl_right{
-	top: 90px;
-	left: 275px;
+	top: 92px;
+	left: 273px;
 	-webkit-transform:rotate(45deg);
 }
 .ctl_left .btn_top,.ctl_left .btn_body{
@@ -386,7 +387,6 @@ left: 225px;}
 	color:rgb(94, 92, 92);
 	font-family: Arial;
 }
-
 .juchi_ul{height: 10px;width:100%;position: relative;top: 4px;}
 .juchi_ul li{
 	margin:0 2px;
@@ -413,11 +413,11 @@ left: 225px;}
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
-	<div class="btn_ctl ctl_left" id="left_btn" onMouseDown="left_click('down')" onMouseUp="left_click('up')">
+	<div class="btn_ctl ctl_left" id="left_btn" onMouseDown="left_click('down')" onMouseUp="left_click('c_up')">
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
-	<div class="btn_ctl ctl_right" id="right_btn" onMouseDown="right_click('down')" onMouseUp="right_click('up')">
+	<div class="btn_ctl ctl_right" id="right_btn" onMouseDown="right_click('c_down')" onMouseUp="right_click('c_up')">
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
@@ -470,10 +470,7 @@ left: 225px;}
 <div class="timer">
 	<div class="time_shadow"></div>
 	<div class="records">
-		<ul class="records_ul">
-			<li>00:01:00</li>
-			<li>00:01:00</li>
-			<li>00:01:00</li>
+		<ul id="records_ul" class="records_ul">
 		</ul>
 		<div class="space"></div>
 		<ul class="juchi_ul">
@@ -484,7 +481,7 @@ left: 225px;}
 
 	<div class="records_cover"></div>
 	<div class="time_cover">
-		<span class="main_time">00:00:00</span>
+		<span id="main_time" class="main_time">00:00:00</span>
 	</div>
 
 </div>
@@ -493,6 +490,7 @@ left: 225px;}
 	var trans = -90;
 	var left_ctlable = false;
 	var right_ctlable = false;
+	var times = new Array();
 	function myFunction()
 	{
 		document.getElementById("second_holder").style.webkitTransform = "rotate(45deg)";
@@ -510,6 +508,8 @@ left: 225px;}
 			right_click("down");
 			right_ctlable = false;
 			start = true;
+			transPlus();
+			timeChange();
 			pointergo();
 		}else{
 			document.getElementById("mid_btn").style.top = "32px";
@@ -532,7 +532,15 @@ left: 225px;}
 		}else if(e =="up"){
 			document.getElementById("left_btn").style.top = "88px";
 			document.getElementById("left_btn").style.left = "23px";
+		}else if(e =="c_up"){
+			document.getElementById("left_btn").style.top = "88px";
+			document.getElementById("left_btn").style.left = "23px";
+			var time = getTimePnt(trans + 90);
+			var li = document.createElement("li");
+			li.innerHTML=time;
+			document.getElementById("records_ul").insertBefore(li,document.getElementById("records_ul").firstChild);
 		}
+		
 	}
 	function right_click(e){
 		if(!right_ctlable){
@@ -543,20 +551,58 @@ left: 225px;}
 		}else if(e =="up"){
 			document.getElementById("right_btn").style.top = "88px";
 			document.getElementById("right_btn").style.left = "277px";
+		}else if(e =="c_down"){
+			document.getElementById("right_btn").style.top = "94px";
+			document.getElementById("right_btn").style.left = "271px";
+		}else if(e =="c_up"){
+			document.getElementById("right_btn").style.top = "92px";
+			document.getElementById("right_btn").style.left = "273px";
+			document.getElementById("second_holder").style.webkitTransform = "rotate(-90deg)";
+			right_click("down");
+			document.getElementById("main_time").innerText = "00:00.00";
+			trans = -90;
+			left_ctlable = false;
+			right_ctlable = false;
 		}
 	}
-
+	function timeChange(){
+		if(start)
+		{
+			setTimeout(function(){
+					document.getElementById("main_time").innerText = getTimePnt(trans+90);
+					timeChange();
+				},100
+			);
+		}
+	}
 	function pointergo(){
 		if(start)
 		{
-			/*if(!document.getElementById("second_holder").style.webkitTransform){
-				trans =-90;
-			}else{
-				trans = eval(document.getElementById("second_holder").style.webkitTransform.replace(/rotate\((.*)deg\)/g,"$1")) + 1.2;
-			}*/
-			trans = trans + 0.3;
-			setTimeout(function(){document.getElementById("second_holder").style.webkitTransform = "rotate("+ trans +"deg)";pointergo();},50);
+			setTimeout(function(){
+				document.getElementById("second_holder").style.webkitTransform = "rotate("+ trans +"deg)";
+				pointergo();
+			},250
+		);
 		}
+	}
+	function transPlus(){
+		if(start){
+			setTimeout(function(){
+				trans = trans + 0.06;
+				transPlus()
+			},10);
+		}
+	}
+	function getTimePnt(p_trans){
+		if(!p_trans){
+			p_trans = 0;
+		}
+
+		p_trans = p_trans/0.06;
+		var min = parseInt(p_trans/6000);
+		var second = parseInt(p_trans%6000/100);
+		var hs = parseInt(p_trans%6000%100);
+		return (min<10?"0"+min : min) +":"+(second<10?"0"+second : second)+"."+(hs<10?"0"+hs : hs);
 	}
 </script>
 </body>
