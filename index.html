@@ -299,8 +299,8 @@ left: 225px;}
 	left: 150px;
 }
 .ctl_left{
-	top: 90px;
-	left: 25px;
+	top: 92px;
+	left: 27px;
 	-webkit-transform:rotate(-45deg);
 }
 .ctl_right{
@@ -408,16 +408,16 @@ left: 225px;}
 
 
 <div class="coloc">
-	<div class="btn_ctl ctl_mid" onclick="myFunction()">
+	<div class="btn_ctl ctl_mid" id="mid_btn" onMouseDown="mid_down()" onMouseUp="mid_up()">
 		<div class="mid_pandent"><div class="pandent"></div></div>
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
-	<div class="btn_ctl ctl_left">
+	<div class="btn_ctl ctl_left" id="left_btn" onMouseDown="left_click('down')" onMouseUp="left_click('up')">
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
-	<div class="btn_ctl ctl_right">
+	<div class="btn_ctl ctl_right" id="right_btn" onMouseDown="right_click('down')" onMouseUp="right_click('up')">
 		<div class="btn_body"></div>
 		<div class="btn_top"></div>
 	</div>
@@ -489,10 +489,74 @@ left: 225px;}
 
 </div>
 <script>
-	
+	var start = false;
+	var trans = -90;
+	var left_ctlable = false;
+	var right_ctlable = false;
 	function myFunction()
 	{
 		document.getElementById("second_holder").style.webkitTransform = "rotate(45deg)";
+	}
+	function mid_down()
+	{
+		document.getElementById("mid_btn").style.top = "38px";
+	}
+	function mid_up()
+	{
+		if(!start){
+			document.getElementById("mid_btn").style.top = "32px";
+			left_ctlable = true;
+			left_click("up");
+			right_click("down");
+			right_ctlable = false;
+			start = true;
+			pointergo();
+		}else{
+			document.getElementById("mid_btn").style.top = "32px";
+			left_ctlable = true;
+			left_click("down");
+			left_ctlable = false;
+			right_ctlable = true;
+			right_click("up");
+			start = false;
+		}
+
+	}
+
+	function left_click(e){
+		if(!left_ctlable){
+			return;
+		}else if(e =="down"){
+			document.getElementById("left_btn").style.top = "92px";
+			document.getElementById("left_btn").style.left = "27px";
+		}else if(e =="up"){
+			document.getElementById("left_btn").style.top = "88px";
+			document.getElementById("left_btn").style.left = "23px";
+		}
+	}
+	function right_click(e){
+		if(!right_ctlable){
+			return;
+		}else if(e =="down"){
+			document.getElementById("right_btn").style.top = "92px";
+			document.getElementById("right_btn").style.left = "273px";
+		}else if(e =="up"){
+			document.getElementById("right_btn").style.top = "88px";
+			document.getElementById("right_btn").style.left = "277px";
+		}
+	}
+
+	function pointergo(){
+		if(start)
+		{
+			/*if(!document.getElementById("second_holder").style.webkitTransform){
+				trans =-90;
+			}else{
+				trans = eval(document.getElementById("second_holder").style.webkitTransform.replace(/rotate\((.*)deg\)/g,"$1")) + 1.2;
+			}*/
+			trans = trans + 0.3;
+			setTimeout(function(){document.getElementById("second_holder").style.webkitTransform = "rotate("+ trans +"deg)";pointergo();},50);
+		}
 	}
 </script>
 </body>
