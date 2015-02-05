@@ -176,32 +176,36 @@
 		}
 	}
 	function timeChange(){
-		if(start)
-		{
-			setTimeout(function(){
-					document.getElementById("main_time").innerText = getTimePnt(trans+90);
-					timeChange();
+			var timeChangeAct = setInterval(function(){
+					if(start)
+					{
+						document.getElementById("main_time").innerText = getTimePnt(trans+90);
+					}else {
+						clearInterval(timeChangeAct);
+					}
 				},100
 			);
-		}
 	}
 	function pointerGo(){
-		if(start)
-		{
-			setTimeout(function(){
-				document.getElementById("second_holder").style.webkitTransform = "rotate("+ trans +"deg)";
-				pointerGo();
-			},100
-		);
-		}
+			var pointerGoAct = setInterval(function(){
+					if(start)
+					{
+						document.getElementById("second_holder").style.webkitTransform = "rotate("+ trans +"deg)";
+					}else {
+						clearInterval(pointerGoAct);
+					}
+				},100
+			);
 	}
 	function transPlus(){
-		if(start){
-			setTimeout(function(){
-				trans = trans + 0.06;
-				transPlus();
+		
+			var transPlusAct = setInterval(function(){
+				if(start){
+					trans = trans + 0.06;
+				}else {
+					clearInterval(transPlusAct);
+				}
 			},10);
-		}
 	}
 	function getTimePnt(p_trans){
 		if(!p_trans){
