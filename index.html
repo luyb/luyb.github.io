@@ -3,10 +3,7 @@
 <head>
 <meta  content="text/html;charset=gb2312">
 <link href="base.css" rel="stylesheet">
-<style type="text/css"">
-@charset "gb2312";
 
-</style>
 <title>Smartisan-coloc</title>
 </head>
 <body>
@@ -75,6 +72,7 @@
 <div class="timer">
 	<div class="time_shadow"></div>
 	<div class="records">
+		<div class="space"></div>
 		<ul id="records_ul" class="records_ul">
 		</ul>
 		<div class="space"></div>
@@ -95,6 +93,7 @@
 	var trans = -90;
 	var left_ctlable = false;
 	var right_ctlable = false;
+	var get_time_cnt = 0;
 	var times = new Array();
 	function myFunction()
 	{
@@ -142,7 +141,7 @@
 			document.getElementById("left_btn").style.left = "23px";
 			var time = getTimePnt(trans + 90);
 			var li = document.createElement("li");
-			li.innerHTML=time;
+			li.innerHTML='<span class="get_time_cnt">'+(++get_time_cnt)+'</span>'+time;
 			times.push(time);
 			var ul = document.getElementById("records_ul");
 			ul.insertBefore(li,ul.firstChild);
