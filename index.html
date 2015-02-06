@@ -70,8 +70,8 @@
 	</div>
 </div>
 <div class="timer">
-	<div class="time_shadow"></div>
-	<div class="records">
+	<div class="time_shadow" id="time_shadow"></div>
+	<div class="records" id="records">
 		<div class="space"></div>
 		<div class="opcityCover "></div>
 		<ul id="records_ul" class="records_ul">
@@ -83,7 +83,7 @@
 		</ul>
 	</div>
 
-	<div class="records_cover"></div>
+	<div class="records_cover" id="records_cover"></div>
 	<div class="time_cover">
 		<span id="main_time" class="main_time">00:00:00</span>
 	</div>
@@ -116,6 +116,12 @@
 			transPlus();
 			timeChange();
 			pointerGo();
+			if (!document.getElementById("main_time").classList.contains("start")) {
+				document.getElementById("main_time").classList.add("start");
+				document.getElementById("records").classList.add("start");
+				document.getElementById("records_cover").classList.add("start");
+				document.getElementById("time_shadow").classList.add("start");
+			}
 		}else{
 			document.getElementById("mid_btn").style.top = "32px";
 			left_ctlable = true;
