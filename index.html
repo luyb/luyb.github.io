@@ -177,10 +177,30 @@
 			trans = -90;
 			left_ctlable = false;
 			right_ctlable = false;
-			for(var i=0;i<times.length;i++){
-				var ul = document.getElementById("records_ul");
-				ul.removeChild(ul.firstChild);
-			}
+			get_time_cnt = 0;
+			document.getElementById("records").classList.add("end");
+			document.getElementById("main_time").classList.add("end");
+			document.getElementById("records_cover").classList.add("end");
+			document.getElementById("time_shadow").classList.add("end");
+			setTimeout(function () {
+				for(var i=0;i<times.length;i++){
+					var ul = document.getElementById("records_ul");
+					ul.removeChild(ul.firstChild);
+				}
+				document.getElementById("records").classList.remove("start");
+				document.getElementById("records").classList.remove("end");
+				document.getElementById("records_cover").classList.remove("start");
+				document.getElementById("records_cover").classList.remove("end");
+				document.getElementById("time_shadow").classList.remove("start");
+				document.getElementById("time_shadow").classList.remove("end");
+				times = new Array();
+			},350);
+			setTimeout(function () {
+				document.getElementById("main_time").classList.remove("start");
+				document.getElementById("main_time").classList.remove("end");
+			},600);
+
+
 		}
 	}
 	function timeChange(){

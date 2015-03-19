@@ -362,6 +362,25 @@ left: 225px;}
 	60%{top: 5px}
 	100%{top: 5px}
 }
+
+.main_time.end{
+	-webkit-animation: mainTimeEnd 0.6s linear;	
+}
+@-webkit-keyframes mainTimeEnd
+{
+	0% {top: 5px}
+	55%{top: 5px}
+	80%{top: 40px}
+	100%{top: 26px}
+}
+@keyframes mainTimeEnd
+{
+	0% {top: 5px}
+	55%{top: 5px}
+	80%{top: 40px}
+	100%{top: 26px}
+}
+
 .time_cover{
 	background:white;
 	position: absolute;
@@ -397,6 +416,23 @@ left: 225px;}
 	100%{top: -835px}
 }
 
+.time_shadow.end{
+	animation: timeShadowHide 0.5s linear;
+	-webkit-animation: timeShadowHide 0.5s linear;		
+}
+@-webkit-keyframes timeShadowHide
+{
+	0% {top: -835px}
+	30%{top: -855px}
+	100%{top: -855px}
+}
+@keyframes timeShadowHide
+{
+	0% {top: -835px}
+	30%{top: -855px}
+	100%{top: -855px}
+}
+
 .records_cover{
 	position: absolute;
 	width:210px;
@@ -425,6 +461,26 @@ left: 225px;}
 	35%{top: 63px}
 	100%{top: 63px}
 }
+
+.records_cover.end{
+	animation: recordsCoverHide 0.5s linear;
+	-webkit-animation: recordsCoverHide 0.5s linear;	
+}
+@-webkit-keyframes recordsCoverHide
+{
+	0% {top: 63px}
+	30%{top: 63px}
+	35%{top: 43px}
+	100%{top: 43px}
+}
+@keyframes recordsCoverHide
+{
+	0% {top: 63px}
+	30%{top: 63px}
+	35%{top: 43px}
+	100%{top: 43px}
+}
+
 .opcityCover{
 position: absolute;
 height: 10px;
@@ -451,6 +507,7 @@ box-shadow: 0px 0px 7px 4px white;
 	animation:recordsShow linear 0.5s;
 	-webkit-animation: recordsShow linear 0.5s;
 }
+
 @-webkit-keyframes recordsShow
 {
 	0% {top: 0px}
@@ -464,6 +521,16 @@ box-shadow: 0px 0px 7px 4px white;
 	25% {top: 0px}
 	85%{top: 65px}
 	100%{top: 60px}
+}
+.records.end{
+	animation:recordsHide linear 0.5s;
+	-webkit-animation: recordsHide linear 0.5s;
+}
+@-webkit-keyframes recordsHide
+{
+	0% {top: 60px}
+	70%{top: -500px}
+	100%{top: 0px}
 }
 .get_time_cnt{
 display: block;
